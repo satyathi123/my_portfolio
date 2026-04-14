@@ -1,0 +1,82 @@
+.education-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.education-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+.edu-icon {
+  background: rgba(79, 172, 254, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  color: var(--accent-blue);
+}
+
+.edu-content {
+  flex: 1;
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.edu-header h3 {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+}
+
+.edu-date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.edu-degree {
+  color: var(--accent-cyan);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.edu-score {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  border: 1px solid var(--glass-border);
+}
+
+.edu-score span {
+  color: var(--accent-cyan);
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .education-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .edu-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .edu-score {
+    margin-top: 1rem;
+  }
+}
