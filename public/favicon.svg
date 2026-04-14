@@ -1,0 +1,32 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="favicon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#22d3ee" />
+      <stop offset="50%" stopColor="#3b82f6" />
+      <stop offset="100%" stopColor="#6366f1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#22d3ee" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  
+  <path 
+    d="M20 80 L50 20 L80 80" 
+    stroke="url(#favicon-gradient)" 
+    strokeWidth="12" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+    filter="url(#shadow)"
+  />
+  
+  <path 
+    d="M35 55 L65 55 C80 55, 80 80, 65 80 L35 80" 
+    stroke="url(#favicon-gradient)" 
+    strokeWidth="12" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+    filter="url(#shadow)"
+  />
+
+  <circle cx="50" cy="50" r="6" fill="#22d3ee" />
+</svg>

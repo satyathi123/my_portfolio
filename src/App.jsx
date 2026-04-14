@@ -5,18 +5,24 @@ import Experience from './components/Experience/Experience';
 import Projects from './components/Projects/Projects';
 import Education from './components/Education/Education';
 import Contact from './components/Contact/Contact';
+import Logo from './components/Logo/Logo';
+import Loader from './components/Loader/Loader';
 import './App.css';
 
 function App() {
   return (
     <div className="app-container">
+      <Loader />
       <div className="ambient-bg">
         <div className="orb orb-1"></div>
         <div className="orb orb-2"></div>
         <div className="orb orb-3"></div>
       </div>
       <nav className="navbar glass-nav">
-        <div className="nav-logo">AS.</div>
+        <div className="nav-logo">
+          <Logo size="32px" />
+          <span className="logo-text">Anand Satyarthi</span>
+        </div>
         <ul className="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
