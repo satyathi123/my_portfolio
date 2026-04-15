@@ -13,7 +13,8 @@
 }
 
 .edu-icon {
-  background: rgba(79, 172, 254, 0.1);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   padding: 1rem;
   border-radius: 12px;
   color: var(--accent-blue);
@@ -50,7 +51,7 @@
 
 .edu-score {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
   font-size: 0.95rem;

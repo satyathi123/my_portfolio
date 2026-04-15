@@ -61,9 +61,9 @@
 
 .btn-primary {
   background: var(--accent-gradient);
-  color: #000;
+  color: white;
   border: none;
-  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 .btn-primary:hover {
@@ -79,7 +79,7 @@
 
 .btn-outline:hover {
   border-color: var(--accent-blue);
-  background: rgba(79, 172, 254, 0.1);
+  background: var(--glass-bg);
 }
 
 .hero-graphic {
@@ -93,8 +93,9 @@
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(0, 242, 254, 0.2), rgba(79, 172, 254, 0.05), transparent 70%);
-  filter: blur(20px);
+  background: radial-gradient(circle at 30% 30%, var(--accent-cyan), transparent 70%);
+  opacity: 0.15;
+  filter: blur(40px);
   animation: pulse 4s ease-in-out infinite alternate;
 }
 

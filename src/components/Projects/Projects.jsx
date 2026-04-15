@@ -1,6 +1,6 @@
-import React from 'react';
-import './Projects.css';
+import { motion } from 'framer-motion';
 import { ExternalLink, Code } from 'lucide-react';
+import './Projects.css';
 
 const projects = [
   {
@@ -27,12 +27,45 @@ const projects = [
 ];
 
 const Projects = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { y: 50, opacity: 0, rotateX: 10 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      rotateX: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
   return (
     <div className="projects-container">
       <h2 className="section-title">Featured <span>Projects</span></h2>
-      <div className="projects-grid">
+      <motion.div 
+        className="projects-grid"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
         {projects.map((project, index) => (
-          <div key={index} className="project-card glass-panel">
+          <motion.div 
+            key={index} 
+            className="project-card glass-panel interactive"
+            variants={cardVariants}
+            whileHover={{ 
+              scale: 1.02,
+              rotateY: index % 2 === 0 ? 5 : -5,
+              transition: { duration: 0.3 }
+            }}
+          >
             <div className="project-header">
               <h3>{project.title}</h3>
               <Code className="project-icon" size={24} />
@@ -47,9 +80,9 @@ const Projects = () => {
                 <li key={i}>{detail}</li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

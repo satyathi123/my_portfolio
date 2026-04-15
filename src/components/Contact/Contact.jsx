@@ -1,5 +1,6 @@
-import React from 'react';
+import { motion } from 'framer-motion';
 import { Mail, Phone } from 'lucide-react';
+import Magnetic from '../Magnetic/Magnetic';
 import './Contact.css';
 
 const LinkedinIcon = ({ size = 24, color = "currentColor", ...props }) => (
@@ -40,36 +41,73 @@ const GithubIcon = ({ size = 24, color = "currentColor", ...props }) => (
 );
 
 const Contact = () => {
+  const containerVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <footer className="contact-container">
-      <div className="contact-content glass-panel">
-        <h2 className="contact-title">Let's <span>Connect</span></h2>
-        <p className="contact-desc">
+      <motion.div 
+        className="contact-content glass-panel"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <motion.h2 className="contact-title" variants={itemVariants}>Let's <span>Connect</span></motion.h2>
+        <motion.p className="contact-desc" variants={itemVariants}>
           I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-        </p>
+        </motion.p>
         
         <div className="contact-links">
-          <a href="mailto:kranandkamal089@gmail.com" className="contact-item">
-            <div className="contact-icon"><Mail size={20} /></div>
-            <span>kranandkamal089@gmail.com</span>
-          </a>
-          <a href="tel:+918873167803" className="contact-item">
-            <div className="contact-icon"><Phone size={20} /></div>
-            <span>+91 8873167803</span>
-          </a>
-          <a href="https://linkedin.com/in/anand-satyarthi" target="_blank" rel="noreferrer" className="contact-item">
-            <div className="contact-icon"><LinkedinIcon size={20} /></div>
-            <span>linkedin.com/in/anand-satyarthi</span>
-          </a>
-          <a href="https://github.com/satyarthi123" target="_blank" rel="noreferrer" className="contact-item">
-            <div className="contact-icon"><GithubIcon size={20} /></div>
-            <span>github.com/satyarthi123</span>
-          </a>
+          <Magnetic>
+            <motion.a href="mailto:kranandkamal089@gmail.com" className="contact-item interactive" variants={itemVariants}>
+              <div className="contact-icon"><Mail size={20} /></div>
+              <span>kranandkamal089@gmail.com</span>
+            </motion.a>
+          </Magnetic>
+          <Magnetic>
+            <motion.a href="tel:+918873167803" className="contact-item interactive" variants={itemVariants}>
+              <div className="contact-icon"><Phone size={20} /></div>
+              <span>+91 8873167803</span>
+            </motion.a>
+          </Magnetic>
+          <Magnetic>
+            <motion.a href="https://linkedin.com/in/anand-satyarthi" target="_blank" rel="noreferrer" className="contact-item interactive" variants={itemVariants}>
+              <div className="contact-icon"><LinkedinIcon size={20} /></div>
+              <span>linkedin.com/in/anand-satyarthi</span>
+            </motion.a>
+          </Magnetic>
+          <Magnetic>
+            <motion.a href="https://github.com/satyarthi123" target="_blank" rel="noreferrer" className="contact-item interactive" variants={itemVariants}>
+              <div className="contact-icon"><GithubIcon size={20} /></div>
+              <span>github.com/satyarthi123</span>
+            </motion.a>
+          </Magnetic>
         </div>
-      </div>
-      <div className="footer-bottom">
+      </motion.div>
+      <motion.div 
+        className="footer-bottom"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+      >
         <p>Built with React & Vite by Anand Satyarthi. &copy; {new Date().getFullYear()}</p>
-      </div>
+      </motion.div>
     </footer>
   );
 };

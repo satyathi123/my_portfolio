@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: center;
   color: var(--accent-cyan);
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+  box-shadow: var(--card-shadow);
 }
 
 .timeline-header {

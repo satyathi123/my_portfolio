@@ -1,13 +1,36 @@
-import React from 'react';
+import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
 import './Experience.css';
 
 const Experience = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.3 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { x: -30, opacity: 0 },
+    visible: { 
+      x: 0, 
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
   return (
     <div className="experience-container">
       <h2 className="section-title">Work <span>Experience</span></h2>
-      <div className="timeline">
-        <div className="timeline-item glass-panel">
+      <motion.div 
+        className="timeline"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.div className="timeline-item glass-panel interactive" variants={itemVariants}>
           <div className="timeline-icon">
             <Briefcase size={20} />
           </div>
@@ -28,8 +51,8 @@ const Experience = () => {
               <li>Developed proof-of-concepts (POCs) and technical solutions to support client acquisition and product development.</li>
             </ul>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

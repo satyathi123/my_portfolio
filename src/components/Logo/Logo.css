@@ -13,7 +13,8 @@
 .logo-svg {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.3));
+  filter: drop-shadow(0 0 8px var(--accent-cyan));
+  opacity: 0.8;
 }
 
 .path-a, .path-s {
@@ -41,5 +42,6 @@
 
 /* Hover effect on the whole logo */
 .logo-container:hover .logo-svg {
-  filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.6));
+  filter: drop-shadow(0 0 12px var(--accent-cyan));
+  opacity: 1;
 }

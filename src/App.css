@@ -21,8 +21,9 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.5;
+  opacity: var(--orb-opacity);
   animation: float 20s infinite ease-in-out alternate;
+  transition: opacity var(--transition-speed) ease;
 }
 
 .orb-1 {
@@ -69,11 +70,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(11, 17, 32, 0.6);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
   z-index: 1000;
+  transition: background 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .nav-logo {
@@ -106,6 +114,31 @@
 
 .nav-links li a:hover {
   color: var(--accent-cyan);
+}
+
+.theme-toggle {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: 0.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px) rotate(15deg);
+  border-color: var(--accent-blue);
+  background: var(--accent-gradient);
+  color: white;
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
 }
 
 main section {

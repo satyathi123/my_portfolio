@@ -1,41 +1,68 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Skills.css';
 
-const skillCategories = [
+const skills = [
   {
-    title: 'Frontend',
-    skills: ['React.js', 'Redux Toolkit', 'JavaScript (ES6+)', 'HTML5/CSS3', 'Tailwind CSS', 'Material UI', 'Bootstrap']
+    category: 'Frontend',
+    items: ['React.js', 'Redux', 'JavaScript (ES6+)', 'HTML5/CSS3', 'Vite', 'Framer Motion']
   },
   {
-    title: 'Backend',
-    skills: ['Node.js', 'Express.js', 'REST APIs', 'WebSocket']
+    category: 'Backend',
+    items: ['Node.js', 'Express.js', 'RESTful APIs', 'PostgreSQL', 'MongoDB']
   },
   {
-    title: 'Databases & Tools',
-    skills: ['PostgreSQL', 'MongoDB', 'Git/GitHub', 'Postman', 'VS Code']
-  },
-  {
-    title: 'Other Skills',
-    skills: ['API Integration', 'Performance Optimization', 'Agile Development', 'Responsive Design']
+    category: 'Tools & DevOps',
+    items: ['Git/GitHub', 'npm/yarn', 'Postman', 'Docker', 'AWS Basics']
   }
 ];
 
 const Skills = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
     <div className="skills-container">
       <h2 className="section-title">Technical <span>Skills</span></h2>
-      <div className="skills-grid">
-        {skillCategories.map((category, index) => (
-          <div key={index} className="skill-card glass-panel">
-            <h3>{category.title}</h3>
+      <motion.div 
+        className="skills-grid"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {skills.map((skill, index) => (
+          <motion.div 
+            key={index} 
+            className="skill-card glass-panel"
+            variants={cardVariants}
+            whileHover={{ y: -10, transition: { duration: 0.2 } }}
+          >
+            <h3>{skill.category}</h3>
             <div className="skill-tags">
-              {category.skills.map((skill, i) => (
-                <span key={i} className="skill-tag">{skill}</span>
+              {skill.items.map((item, i) => (
+                <span key={i} className="skill-tag">{item}</span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
