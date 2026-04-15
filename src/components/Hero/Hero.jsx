@@ -34,7 +34,29 @@ const Hero = () => {
       >
         <motion.h2 className="hero-subtitle" variants={itemVariants}>Hello, I'm</motion.h2>
         <motion.h1 className="hero-title" variants={itemVariants}>
-          Anand <span>Satyarthi</span>
+          {"Anand".split("").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5 + index * 0.05, duration: 0.5 }}
+            >
+              {char}
+            </motion.span>
+          ))}
+          {" ".split("").map((char, index) => <span key={index}>&nbsp;</span>)}
+          <span className="accent-name">
+            {"Satyarthi".split("").map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8 + index * 0.05, duration: 0.5 }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </span>
         </motion.h1>
         <motion.h3 className="hero-role" variants={itemVariants}>Full-Stack Developer</motion.h3>
         <motion.p className="hero-summary" variants={itemVariants}>

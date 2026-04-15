@@ -8,12 +8,18 @@ import Contact from './components/Contact/Contact';
 import Logo from './components/Logo/Logo';
 import Loader from './components/Loader/Loader';
 import { Sun, Moon } from 'lucide-react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useScroll } from 'framer-motion';
 import Magnetic from './components/Magnetic/Magnetic';
 import './App.css';
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
   
   // Mouse position for background orbs
   const mouseX = useMotionValue(0);
@@ -42,6 +48,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <motion.div className="progress-bar" style={{ scaleX }} />
       <Loader />
       <div className="ambient-bg">
         <motion.div 

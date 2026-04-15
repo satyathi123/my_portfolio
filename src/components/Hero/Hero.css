@@ -21,9 +21,15 @@
   font-size: 4.5rem;
   line-height: 1.1;
   margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .hero-title span {
+  display: inline-block;
+}
+
+.hero-title .accent-name span {
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
